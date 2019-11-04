@@ -12,7 +12,7 @@ const pokemonList = [
   {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
 ];
 
-const pokemonImgUrl = (id) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+const getPokemonImgUrl = (id) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
 class Pokedex extends Component {
   render() {
@@ -21,12 +21,13 @@ class Pokedex extends Component {
       return <div>
         <Pokecard
             name={pokemon.name}
-            img={pokemonImgUrl(pokemon.id)}
+            img={getPokemonImgUrl(pokemon.id)}
             type={pokemon.type}
             exp ={pokemon.base_experience}
         />
       </div>;
     });
+
     return (
         <div>
           <p>Pokedex</p>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Pokecard.css';
 
 class Pokecard extends Component {
   render() {
@@ -6,10 +7,10 @@ class Pokecard extends Component {
     return (
         <div>
           <p>Pokecard</p>
-          <div>{this.props.name}</div>
-          <div><img src={this.props.img} /></div>
-          <div>Type: {this.props.type}</div>
-          <div>EXP: {this.props.exp}</div>
+          <p>{this.props.name}</p>
+          <img className="Pokecard-img" src={this.props.img} />
+          <p>Type: {this.props.type}</p>
+          <p>EXP: {this.props.exp}</p>
         </div>
     );
   }

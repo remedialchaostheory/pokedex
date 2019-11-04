@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Pokecard from "./Pokecard";
+import Pokecard from './Pokecard';
+import './Pokedex.css';
 
 const pokemonList = [
   {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
@@ -18,7 +19,7 @@ class Pokedex extends Component {
   render() {
     // populate pokedex with diff pokecards
     const pokemonCards = pokemonList.map(pokemon => {
-      return <div>
+      return <div className="Pokedex">
         <Pokecard
             name={pokemon.name}
             img={getPokemonImgUrl(pokemon.id)}

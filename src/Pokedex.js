@@ -2,45 +2,27 @@ import React, { Component } from 'react';
 import Pokecard from './Pokecard';
 import './Pokedex.css';
 
-const pokemonList = [
-  {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
-  {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
-  {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
-  {id: 12, name: 'Butterfree', type: 'flying', base_experience: 178},
-  {id: 25, name: 'Pikachu', type: 'electric', base_experience: 112},
-  {id: 39, name: 'Jigglypuff', type: 'normal', base_experience: 95},
-  {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
-  {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
-];
-
-const getPokemonImgUrl = (id) => {
-  const padZeros = id => {
-    const padLength = 3;
-    const lengthDiff = padLength - Number(id.toString().length);
-    return lengthDiff ? '0'.repeat(lengthDiff) + id : id;
-  };
- return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padZeros(id)}.png`;
-};
-
 class Pokedex extends Component {
   render() {
-    // populate pokedex with diff pokecards
-    const pokemonCards = pokemonList.map(pokemon => {
-      return <div className="Pokedex">
+    console.log('this.props ->', this.props);
+    const pokeCard = this.props.pokemon.map(pokemon => {
+      return <div>
         <Pokecard
+            id={pokemon.id}
             name={pokemon.name}
-            img={getPokemonImgUrl(pokemon.id)}
             type={pokemon.type}
-            exp ={pokemon.base_experience}
+            exp={pokemon.base_experience}
         />
-      </div>;
+      </div>
     });
 
     return (
-        <div>
-          <p>Pokedex</p>
-          {pokemonCards}
-        </div>
+          <div className="Pokedex">
+            <h3>Pokehand</h3>
+            <div className="Pokedex-cards">
+              {pokeCard}
+            </div>
+          </div>
     );
   }
 }

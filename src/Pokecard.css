@@ -1,5 +1,17 @@
+.Pokecard {
+  background-color: #ededed;
+  width: 200px;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+
+.Pokecard-name {
+  font-weight: bold;
+  color: blue;
+}
+
 .Pokecard-img {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 img:hover {

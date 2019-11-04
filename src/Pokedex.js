@@ -13,7 +13,14 @@ const pokemonList = [
   {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
 ];
 
-const getPokemonImgUrl = (id) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+const getPokemonImgUrl = (id) => {
+  const padZeros = id => {
+    const padLength = 3;
+    const lengthDiff = padLength - Number(id.toString().length);
+    return lengthDiff ? '0'.repeat(lengthDiff) + id : id;
+  };
+ return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padZeros(id)}.png`;
+};
 
 class Pokedex extends Component {
   render() {
